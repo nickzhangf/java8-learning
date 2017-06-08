@@ -11,6 +11,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -31,9 +32,13 @@ public class ApplePredicateTest
         Apple apple2 = new Apple();
         apple2.setColor("green");
         apple2.setWeight(130);
+        Apple apple3 = new Apple();
+        apple3.setColor("yellow");
+        apple3.setWeight(130);
         apples = new ArrayList<Apple>();
         apples.add(apple1);
         apples.add(apple2);
+        apples.add(apple3);
     }
 
     @Test
@@ -58,5 +63,18 @@ public class ApplePredicateTest
         List<Apple> result = ApplePredicateUtils
                 .filterApples(apples, (Apple apple) -> "green".equals(apple.getColor()));
         System.out.println(result);
+    }
+
+    // 使用方法引用进行排序
+    @Test
+    public void testMethodReferenceSort()
+    {
+        // 升序
+//        apples.sort(Comparator.comparing(Apple::getWeight));
+        // 降序
+//        apples.sort(Comparator.comparing(Apple::getWeight).reversed());
+        // 按重量降序排列，重量相同的按颜色升序排列
+        apples.sort(Comparator.comparing(Apple::getWeight).reversed().thenComparing(Apple::getColor));
+        System.out.println(apples);
     }
 }
