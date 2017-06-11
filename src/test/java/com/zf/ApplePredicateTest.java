@@ -28,13 +28,13 @@ public class ApplePredicateTest
     {
         Apple apple1 = new Apple();
         apple1.setColor("red");
-        apple1.setWeight(170);
+        apple1.setWeight((double) 170);
         Apple apple2 = new Apple();
         apple2.setColor("green");
-        apple2.setWeight(130);
+        apple2.setWeight((double) 130);
         Apple apple3 = new Apple();
         apple3.setColor("yellow");
-        apple3.setWeight(130);
+        apple3.setWeight((double) 130);
         apples = new ArrayList<Apple>();
         apples.add(apple1);
         apples.add(apple2);

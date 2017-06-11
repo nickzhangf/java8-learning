@@ -9,5 +9,5 @@ import lombok.Data;
 public class Apple
 {
     private String color;
-    private float weight;
+    private Double weight;
 }
